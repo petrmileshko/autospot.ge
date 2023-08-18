@@ -26,7 +26,7 @@
 			<?php echo $Ads->adActionFavorite($value, "catalog", "item-grid-favorite"); ?>
 			<div class="caption">
 				<span class="title"><?php echo custom_substr($value["ads_title"], 35, "..."); ?></span>
-				<div class="info"> 
+				<div class="info info__div"> 
 					
 					<div class="item-grid-price">
 						<!-- Блок с ценой в USD -->
