@@ -465,7 +465,7 @@ border: none !important;}.m-index-category:hover{background:#f7f8fa;}}
 			              </div>
 
 						  <div class="d-xl-none">
-                           <!-- Corrections at users_ad_grid_views.php replaced tag <a> inside of <a> by tag span insted -->  
+                           <!-- Corrections at users_ad_grid_views_phone.php replaced tag <a> inside of <a> by tag span insted -->  
 						  <?php include $config["template_path"] . "/include/users_ad_grid_views_phone.php"; ?>
 		                  </div> 
 
