@@ -1,0 +1,310 @@
+.custom-control-input-success:checked ~ .custom-control-label::before {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+}
+
+.custom-control-input-danger:checked ~ .custom-control-label::before {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+
+.custom-control-input-warning:checked ~ .custom-control-label::before {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+}
+
+.custom-control-input-info:checked ~ .custom-control-label::before {
+    background-color: #17a2b8 !important;
+    border-color: #17a2b8 !important;
+}
+
+/* Large toggl switches */
+.custom-switch-lg .custom-control-label::before {
+    left: -2.25rem;
+    width: 3rem;
+    border-radius: 1.5rem;
+}
+
+.custom-switch-lg .custom-control-label::after {
+    top: calc(.25rem + 3px);
+    left: calc(-2.25rem + 4px);
+    width: calc(1.5rem - 6px);
+    height: calc(1.5rem - 6px);
+    border-radius: 1.5rem;
+}
+
+.custom-switch-lg .custom-control-input:checked ~ .custom-control-label::after {
+    transform: translateX(1.4rem);
+}
+
+.custom-switch-lg .custom-control-label::before {
+    height: 1.5rem;
+}
+
+.custom-switch-lg .custom-control-label {
+    padding-left: 1.5rem;
+    line-height: 1.7rem;
+	font-weight: 500;
+}
+
+.css-ew543ge4 {font-size: 14px; margin-top: 7px; padding: 0px;}
+.css-gr2388r3 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 0px;
+    border: 1px solid #7f7f7f;
+}
+
+
+.create-info-form {
+    padding: 15px 10px 8px;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    margin-bottom: 0px;
+    display: block;
+    color: black;
+}
+
+
+
+.css-dsew533{
+width: 100%; 
+font-weight: 500;
+}
+
+
+.btn{
+border: 1px solid transparent;
+}
+
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+visibility: hidden;
+}
+
+.btn-outline-secondary {
+    color: #d3d3d3;
+    border-color: #d3d3d3;
+}
+
+.btn-outline-secondary:hover {
+    color: #d3d3d3;
+    border-color: #d3d3d3;
+}
+
+.checkbox-google {
+	
+	height: 28px;    
+	line-height: 28px;      
+	margin-right: 10px;       
+	position: relative;
+	vertical-align: middle;
+	font-size: 15px;
+    user-select: none;
+    font-weight: 500;	
+}
+.btn-border {
+    color: #6c757d;
+    border-color: #dddddd;
+}
+
+.checkbox-google .checkbox-google-switch {
+	display: inline-block;	
+	width: 36px;
+	height: 14px;	
+	border-radius: 20px;
+	position: relative;
+	top: 6px;			
+	vertical-align: top;
+	background: #9f9f9f;
+	transition: .2s;
+}
+.checkbox-google .checkbox-google-switch:before {
+	content: '';
+	display: inline-block;	
+	width: 20px;	
+	height: 20px;
+	position: absolute;
+	top: -3px;
+	left: -1px;
+	background: #fff;
+	border-radius: 50%;
+	box-shadow: 0 3px 1px -2px rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12);
+	transition: .15s;		
+}
+.checkbox-google input[type=checkbox] {
+	display: block;	
+	width: 0;
+	height: 0;	
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.checkbox-google input[type=checkbox]:checked + .checkbox-google-switch {
+	background: #9ABEF7;
+}
+.checkbox-google input[type=checkbox]:checked + .checkbox-google-switch:before {
+	background: #1a73e8;
+	transform:translateX(18px);
+}
+ 
+/* Hover */
+.checkbox-google input[type="checkbox"]:not(:disabled) + .checkbox-google-switch {
+	cursor: pointer;
+	border-color: rgba(0, 0, 0, .3);
+}
+ 
+/* Active/Focus */
+.checkbox-google input[type="checkbox"]:not(:disabled):active + .checkbox-google-switch:before, 
+.checkbox-google input[type="checkbox"]:not(:disabled):focus + .checkbox-google-switch:before {
+	animation: checkbox-active-on 0.5s forwards linear;
+}
+@keyframes checkbox-active-on {
+	0% {
+		box-shadow: 0 0 0 0 rgba(212,212,212, 0);
+	}
+	99% {
+		box-shadow: 0 0 0 10px rgba(212,212,212, 0.5);
+	}
+}
+ 
+.checkbox-google input[type="checkbox"]:not(:disabled):checked:active + .checkbox-google-switch:before, 
+.checkbox-google input[type="checkbox"]:not(:disabled):checked:focus + .checkbox-google-switch:before {
+	animation: checkbox-active-off 0.5s forwards linear;
+}
+@keyframes checkbox-active-off {
+	0% {
+		box-shadow: 0 0 0 0 rgba(154,190,247, 0);
+	}
+	99% {
+		box-shadow: 0 0 0 10px rgba(154,190,247, 0.5);
+	}
+}
+ 
+/* Disabled */
+.checkbox-google input[type=checkbox]:disabled + .checkbox-google-switch {
+	filter: grayscale(60%);
+	border-color: rgba(0, 0, 0, .1);
+}
+.checkbox-google input[type=checkbox]:disabled + .checkbox-google-switch:before {
+	background: #eee;
+}
+
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+:root {
+	--primary-color: #185ee0;
+	--secondary-color: #e6eef9;
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+
+.tabs {
+	display: flex;
+	position: relative;
+	background-color: #fff;
+	box-shadow: 0 0 1px 0 rgba(#185ee0, 0.15), 0 6px 12px 0 rgba(#185ee0, 0.15);
+	padding: 0.75rem;
+	border-radius: 99px; // just a high number to create pill effect
+	* {
+		z-index: 2;
+	}
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+.tab {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 54px;
+	width: 200px;
+	font-size: 1.25rem;
+	font-weight: 500;
+	border-radius: 99px; // just a high number to create pill effect
+	cursor: pointer;
+	transition: color 0.15s ease-in;
+}
+
+.notification {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	margin-left: 0.75rem;
+	border-radius: 50%;
+	background-color: var(--secondary-color);
+	transition: 0.15s ease-in;
+}
+
+input[type="radio"] {
+	&:checked {
+		& + label {
+			color: var(--primary-color);
+			& > .notification {
+				background-color: var(--primary-color);
+				color: #fff;
+			}
+		}
+	}
+}
+
+input[id="radio-1"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(0);
+		}
+	}
+}
+
+input[id="radio-2"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(100%);
+		}
+	}
+}
+
+input[id="radio-3"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(200%);
+		}
+	}
+}
+
+.glider {
+	position: absolute;
+	display: flex;
+	height: 54px;
+	width: 200px;
+	background-color: var(--secondary-color);
+	z-index: 1;
+	border-radius: 99px; // just a high number to create pill effect
+	transition: 0.25s ease-out;
+}
+
+@media (max-width: 700px) {
+	.tabs {
+		transform: scale(0.6);
+	}
+}
+
+/*#######################################*/
+
+.css-ewqtg43{
+padding-right: 5px;
+padding-left: 5px;}
