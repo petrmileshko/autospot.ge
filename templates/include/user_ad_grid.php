@@ -6,9 +6,8 @@ $image = $Ads->getImages($value["ads_images"]);
      <div class="item-grid-label-status" > <?php echo $Ads->publicationAndStatus($value); ?> </div>
      <a class="item-grid-img" href="<?php echo $Ads->alias($value); ?>" >
 		 						<!-- 18-08-2023 Correction 42 see at log of git https://github.com/petrmileshko/autospot.ge/commits/main 
-								Postpone loading images
-							-->
-       <img alt="<?php echo $value["ads_title"]; ?>" class="image-autofocus" src="<?php echo Exists($config["media"]["small_image_ads"],$image[0],$config["media"]["no_image"]); ?>"  loading="lazy" decoding="async">
+								Postpone loading images	-->
+       <img alt="<?php echo $value["ads_title"]; ?>" class="image-autofocus" src="<?php echo Exists($config["media"]["small_image_ads"],$image[0],$config["media"]["no_image"]); ?>" loading="lazy" decoding="async">
      </a>
      <div class="item-grid-info" >
         
