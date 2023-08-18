@@ -69,19 +69,19 @@
 # BEGIN Browser Cache
 <IfModule mod_expires.c>
 	ExpiresActive On
-	ExpiresByType text/css "access 28 days"
-	ExpiresByType text/html "access 28 days"
-	ExpiresByType image/gif "access 28 days"
-	ExpiresByType image/png "access 28 days"
-	ExpiresByType image/jpg "access 28 days"
-	ExpiresByType image/jpeg "access 28 days"
-	ExpiresByType image/webp "access 28 days"
-	ExpiresByType image/x-icon "access 28 days"
-	ExpiresByType application/pdf "access 28 days"
-	ExpiresByType application/javascript "access 28 days"
-	ExpiresByType text/x-javascript "access 28 days"
-	ExpiresByType application/x-shockwave-flash "access 28 days"
-	ExpiresDefault "access 28 days"
+	ExpiresByType text/css "access plus 6 month"
+	ExpiresByType text/html "access plus 6 month"
+	ExpiresByType image/gif "access plus 6 month"
+	ExpiresByType image/png "access plus 6 month"
+	ExpiresByType image/jpg "access plus 6 month"
+	ExpiresByType image/jpeg "access plus 6 month"
+	ExpiresByType image/webp "access plus 6 month"
+	ExpiresByType image/x-icon "access plus 6 month"
+	ExpiresByType application/pdf "access plus 6 month"
+	ExpiresByType application/javascript "access plus 6 month"
+	ExpiresByType text/x-javascript "access plus 6 month"
+	ExpiresByType application/x-shockwave-flash "access plus 6 month"
+	ExpiresDefault "access plus 6 month"
 </IfModule>
 
 <IfModule mod_headers.c>
