@@ -59,7 +59,10 @@
 							<div class="item-grid-img">
 								
 								<div class="item-labels"></div>
-								<img src="<?php echo $ads_img; ?>" class="image-autofocus ad-gallery-hover-slider-image lazyload" data-src="<?php echo $ads_title; ?>" data-key="0" alt="<?php echo $ads_title; ?>">
+							<!-- 18-08-2023 Correction 44 see at log of git https://github.com/petrmileshko/autospot.ge/commits/main 
+								Postpone loading images
+							-->
+								<img src="<?php echo $ads_img; ?>" class="image-autofocus ad-gallery-hover-slider-image lazyload" data-src="<?php echo $ads_title; ?>" data-key="0" alt="<?php echo $ads_title; ?>" loading="lazy" decoding="async">
 								<span style="top: auto;" class="item-grid-count-photo"><i class="las la-camera"></i><?php echo $ads_count; ?></span>
 								
 							</div>
