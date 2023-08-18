@@ -3033,12 +3033,12 @@ function mapAdAddress($lat = 0, $lon = 0){
        $results = '';
 
        if(count($images)){
-           
+           //18-08-2023 Correction 44  added attributes to <img> tags see at log of git https://github.com/petrmileshko/autospot.ge/commits/main 
            foreach ( array_slice($images, 0, 4) as $key_image => $name ) {
                if(file_exists($config['basePath'].'/'.$config["media"]["small_image_ads"].'/'.$name)){
-                    $results .= '<img class="image-autofocus ad-gallery-hover-slider-image lazyload" data-src="'.Exists($config["media"]["small_image_ads"],$name,$config["media"]["no_image"]).'" data-key="'.$key_image.'" alt="'.$data["ads_title"].'" src="'.Exists($config["media"]["small_image_ads"],$name,$config["media"]["no_image"]).'"  >';
+                    $results .= '<img class="image-autofocus ad-gallery-hover-slider-image lazyload" data-src="'.Exists($config["media"]["small_image_ads"],$name,$config["media"]["no_image"]).'" data-key="'.$key_image.'" alt="'.$data["ads_title"].'" src="'.Exists($config["media"]["small_image_ads"],$name,$config["media"]["no_image"]).'" loading="lazy" decoding="async">';
                }elseif(file_exists($config['basePath'].'/'.$config["media"]["big_image_ads"].'/'.$name)){
-                    $results .= '<img class="image-autofocus ad-gallery-hover-slider-image lazyload" data-src="'.Exists($config["media"]["big_image_ads"],$name,$config["media"]["no_image"]).'" data-key="'.$key_image.'" alt="'.$data["ads_title"].'" src="'.Exists($config["media"]["big_image_ads"],$name,$config["media"]["no_image"]).'"  >';
+                    $results .= '<img class="image-autofocus ad-gallery-hover-slider-image lazyload" data-src="'.Exists($config["media"]["big_image_ads"],$name,$config["media"]["no_image"]).'" data-key="'.$key_image.'" alt="'.$data["ads_title"].'" src="'.Exists($config["media"]["big_image_ads"],$name,$config["media"]["no_image"]).'" loading="lazy" decoding="async">';
                }
            }
 
