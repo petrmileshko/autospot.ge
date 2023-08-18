@@ -50,9 +50,7 @@
 					<div class="item-grid-img">
 						
 						<div class="item-labels"></div>
-						<!-- 18-08-2023 Correction 41 ( old code <img src="<?php echo $ads_img; ?>" class="image-autofocus ad-gallery-hover-slider-image lazyload" data-src="<?php echo $ads_title; ?>" data-key="0" alt="<?php echo $ads_title; ?>"> ) 
-								Postpone loading images
-							-->
+						<!-- 18-08-2023 Correction 41 Postpone loading images -->
 						<img src="<?php echo $ads_img; ?>" class="image-autofocus ad-gallery-hover-slider-image lazyload" data-src="<?php echo $ads_title; ?>" data-key="0" alt="Ad name - <?php echo $ads_title; ?>" loading="lazy" decoding="async">
 						<span style="top: auto;" class="item-grid-count-photo"><i class="las la-camera"></i><?php echo $ads_count; ?></span>
 						
