@@ -8410,3 +8410,35 @@ body {
 }
  
 .selected-button {background-color: #C2272B;color: #ffffff;padding: 2px 10px;border-radius: 5px;}
+
+
+.d-lg-block--pdf {
+	display: flex!important;
+	 min-width: 305px;
+}
+.print-pdf-btn {
+	display: flex;
+	align-items: flex-start;
+	 margin-right: 20px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 13px;
+	 font-weight: 600;
+	text-transform: uppercase;
+	 border: 0;
+	 background: none;
+}
+								 
+.print-pdf-btn:hover {
+	color: #f95146;
+}
+								 
+.print-pdf-btn::before {
+	width: 24px;
+	height: 24px;
+	margin-right: 5px;
+	background-image: url(../images/print-icon.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	 content: "";
+}

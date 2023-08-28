@@ -146,7 +146,7 @@ if ($result_check->num_rows == 0) {
              </div>
              <div class="col-lg-2 col-12 text-right" >
 
-                <div class="d-none d-lg-block" >
+                <div class="d-none d-lg-block d-lg-block--pdf" >
 								<button class="print-pdf-btn" type="submit" form="pdf">распечатать</button>
                 <span <?php echo $Main->modalAuth( ["attr"=>'class="ad-view-title-favorite toggle-favorite-ad" data-id="'.$data["ad"]["ads_id"].'"', "class"=>"ad-view-title-favorite"] ); ?> >
 
