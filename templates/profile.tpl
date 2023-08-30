@@ -2,7 +2,7 @@
 <html lang="<?php echo getLang(); ?>">
   <head>
     <meta charset="utf-8">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $data["page_name"]; ?></title>
     
     <?php include $config["template_path"] . "/head.tpl"; ?>
