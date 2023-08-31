@@ -1,3 +1,48 @@
+<?php
+ include $config["template_path"] . "/lib/tfpdf.php";
+ include $config["template_path"] . "/lib/qrlib.php";
+
+          $Filters = new Filters();
+          $dataAd =  $Filters->outProductPropArray($data["ad"]["ads_id"]);
+$dataPdf =[
+	"id" => $data["ad"]["ads_id"],
+	"qr" => $config["template_path"] . '/images/tmp.png',
+	"car" => [
+	"mark" => $dataAd[1]['value'],
+	"model" => $dataAd[2]['value'],
+	"volume" => $dataAd[5]['value'],
+	"year" => $dataAd[3]['value'],
+	"type" => $dataAd[6]['value'],
+	"mileage" => $dataAd[13]['value'],
+	"price" => $data["ad"]['ads_price_usd']
+	],
+	"author" => [
+		"name" => ( $data["ad"]['clients_name'] ) ? $data["ad"]['clients_name'].' '.$data["ad"]['clients_surname'] : '',
+		"phone" => ( $data["ad"]['clients_phone'] ) ? '+'.preg_replace('/ /','-',$data["ad"]['clients_phone']) : ''
+	]
+];             
+
+
+if( $_POST['ID'] === $data["ad"]["ads_id"]): 
+
+QRcode::png($_SERVER['HTTP_REFERER'].DIRECTORY_SEPARATOR.$_SERVER['REQUEST_URI'],$dataPdf['qr'], 'H', 6, 2);
+	$pdf = new tFPDF('L','pt',[446.25,631.5]);
+	$pdf->SetAuthor($dataPdf['author']['name']); $pdf->AddFont('InterLightBetta','','Inter-LightBETA.ttf',true);$pdf->AddFont('InterMedium','','Inter-Medium.ttf',true);$pdf->AddFont('InterSemibold','B','Inter-SemiBold.ttf',true);
+	$pdf->SetTitle($dataPdf['car']['mark'] .' '.$dataPdf['car']['model'] ); $pdf->SetLineWidth(0,75);$pdf->SetAutoPageBreak(1,0);
+	$pdf->AddPage(); $pdf->SetDisplayMode('real');
+	$pdf->Image($config["template_path"] . '/images/map-pin.png',17.25,27,26.25); $pdf->Image($config["template_path"] . '/images/logo.png',52.5,31.5,108.75);
+	$pdf->SetFont('InterSemibold','B',42); $pdf->SetXY(21,63.75); $pdf->Write( 42, strtoupper($dataPdf['car']['mark'] .' '.$dataPdf['car']['model']));
+	$pdf->SetFont('InterLightBetta','',30); $pdf->cell(12.75); $pdf->Write( 42, $dataPdf['car']['year']); $pdf->SetXY(22.5, 115.5); $pdf->Write( 30, $dataPdf['car']['volume'].'L'); $pdf->cell(12.75); $pdf->Write( 30, $dataPdf['car']['type']); $pdf->cell(12.75); $pdf->Write( 30, $dataPdf['car']['mileage']); $pdf->SetTextColor(131,128,128); $pdf->cell(4.5); $pdf->Write( 30,'km');
+	$pdf->SetFillColor(0,0,0); $pdf->SetTextColor(255,255,255); $pdf->SetFont('InterSemibold','B',48); $pdf->Rect(362.25,28.5,242.25, 123,'F'); $pdf->SetXY(362.25, 45.75); $pdf->cell(219.75, 61.5,$dataPdf['car']['price'].' $',0,1,'R',1); 
+	$pdf->SetFont('InterLightBetta','',27); $pdf->SetXY(362.25, 100.5); $pdf->cell(219.75, 36.75,($dataPdf['car']['price']*2.63).' ₾',0,1,'R',1);
+	$pdf->SetDrawColor(218); $pdf->Line(15.75,173.25,615.75,173.25);
+	$pdf->SetXY(0, 226.5); $pdf->SetFillColor(255,255,255);$pdf->SetTextColor(0,0,0);$pdf->SetFont('InterMedium','',27);$pdf->cell(420.75, 36.75,$dataPdf['author']['phone'],0,1,'R',1); $pdf->SetFont('InterLightBetta','',27);$pdf->SetXY(0, 263.25);$pdf->cell(420.75, 36.75,$dataPdf['author']['name'],0,1,'R',1);
+	$pdf->SetDrawColor(232); $pdf->Line(456,211.5,456, 330.25); $pdf->Image($dataPdf['qr'],482, 217.5, 114);
+	$pdf->SetXY(494.25, 198.75); $pdf->SetFontSize(15);$pdf->cell(90,20,'more detailed',0,1,"C");$pdf->SetFillColor(0,0,0);$pdf->SetTextColor(255,255,255);$pdf->SetXY(494.25, 328);$pdf->cell(90,20,'SCAN ME',0,1,"C",1);
+	$pdf->SetXY(0, 425); $pdf->SetFillColor(255,255,255);$pdf->SetTextColor(0,0,0);$pdf->SetFontSize(10.5);$pdf->cell(630, 11,'www.autospot.ge - SELL, BUY, RENT CARS IN GEORGIA',0,1,"C",1);
+	$pdf->Output('auto-'.$dataPdf['car']['mark'] .'-'.$dataPdf['car']['model'].'.pdf','D');
+endif;?>
+
 <!doctype html>
 <html lang="<?php echo getLang(); ?>">
   <head>
@@ -14,17 +59,17 @@
 
     <?php include $config["template_path"] . "/head.tpl"; ?>
   </head>
-
   <body data-prefix="<?php echo $config["urlPrefix"]; ?>" data-header-sticky="true" data-id-ad="<?php echo $data["ad"]["ads_id"]; ?>" data-id-cat="<?php echo $data["ad"]["category_board_id"]; ?>" data-template="<?php echo $config["template_folder"]; ?>" >
-
+	<form action="" method="post" id="pdf">
+		<input type="hidden" name="ID" value="<?=$data['ad']['ads_id']?>" >
+	</form>
     <?php include $config["template_path"] . "/header.tpl"; ?>
-     
+
     <div class="container" >
 
        <?php echo $Banners->out( ["position_name"=>"ad_view_top", "current_id_cat"=>$data["ad"]["category_board_id"], "categories"=>$getCategoryBoard] ); ?>
 
 <?php
-
 $conn = new mysqli($config["db"]["host"], $config["db"]["user"], $config["db"]["pass"], $config["db"]["database"]);
 
 $ip = $_SERVER['REMOTE_ADDR'];
@@ -48,7 +93,6 @@ if ($result_check->num_rows == 0) {
 }
 
 ?>
-
 
 <?php
 
@@ -76,8 +120,6 @@ if ($result_check->num_rows == 0) {
 }
 
 ?>
-
-
 
        <div class="mt15" ></div>
 
@@ -118,7 +160,8 @@ if ($result_check->num_rows == 0) {
              </div>
              <div class="col-lg-2 col-12 text-right" >
 
-                <div class="d-none d-lg-block" >
+                <div class="d-none d-lg-block d-lg-block--pdf" >
+                 <button class="print-pdf-btn" type="submit" form="pdf">распечатать</button>
                 <span <?php echo $Main->modalAuth( ["attr"=>'class="ad-view-title-favorite toggle-favorite-ad" data-id="'.$data["ad"]["ads_id"].'"', "class"=>"ad-view-title-favorite"] ); ?> >
 
                     <div class="ad-view-title-favorite-icon favorite-ad-icon-box" >
@@ -259,7 +302,6 @@ if ($result_check->num_rows == 0) {
                           <?php echo $Profile->cardUserAd($data); ?>
 
                      </div>
-
                    </div>
 
 
@@ -282,7 +324,6 @@ if ($result_check->num_rows == 0) {
                          <?php echo $data["properties"]; ?>
                        </div>
                      </div>
-
                    <?php } ?>
 				   
 				   
@@ -960,3 +1001,8 @@ function copyToClipboard() {
 
   </body>
 </html>
+
+<!--
+ <pre><?php //print_r($config) ?>
+ </pre>
+-->
