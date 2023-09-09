@@ -8410,3 +8410,52 @@ body {
 }
  
 .selected-button {background-color: #C2272B;color: #ffffff;padding: 2px 10px;border-radius: 5px;}
+
+
+.d-lg-block--pdf {
+	display: flex!important;
+	 min-width: 305px;
+}
+
+                  
+.print-pdf-btn {
+	display: flex;
+	align-items: flex-start;
+	 margin-right: 20px;
+	 padding-left: 28px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 13px;
+	 font-weight: 600;
+	 border: 0;
+	 background-image: url(../images/print_icon_black.svg);
+	 background-repeat: no-repeat;
+	 background-size: 24px 24px;
+	 background-position: 0 center;
+}
+
+.print-pdf-btn:hover {
+	color: #f95146;
+	background-image: url(../images/print_icon_red.svg);
+}
+                  
+.print-pdf-btn--mobile {
+	display: flex;
+	align-items: flex-start;
+ width: 24px;
+ height: 24px;
+	 margin-right: 2px;
+	 border: 0;
+	 background-color: transparent;
+	 background-image: url(../images/print_icon_black.svg);
+	 background-repeat: no-repeat;
+	 background-size: contain;
+	 background-position: center;
+}
+
+.print-pdf-btn--mobile:hover {
+	background-image: url(../images/print_icon_red.svg);
+}
+                  
+.print-pdf-btn-box {
+ display: flex;
+}

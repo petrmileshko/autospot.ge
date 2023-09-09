@@ -703,7 +703,8 @@
 								<div class="toolbar-link mr10" >
 									
 									<span <?php echo $Main->modalAuth( ["attr"=>'class="toolbar-link-title-icon toggle-favorite-ad" data-id="'.$data["ad"]["ads_id"].'"', "class"=>"toolbar-link-title-icon"] ); ?> >
-										<div class="toolbar-link-title-icon-box favorite-ad-icon-box" >
+									<div class="toolbar-link-title-icon-box favorite-ad-icon-box print-pdf-btn-box" >
+                                                          <button class="print-pdf-btn--mobile" type="submit" form="pdf"></button>
 											<?php if( !isset($_SESSION['profile']["favorite"][$data["ad"]["ads_id"]]) ){ ?>
 												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.026 4.133C4.398 4.578 3 6.147 3 8.537c0 3.51 2.228 6.371 4.648 8.432A23.633 23.633 0 0012 19.885a23.63 23.63 0 004.352-2.916C18.772 14.909 21 12.046 21 8.537c0-2.39-1.398-3.959-3.026-4.404-1.594-.436-3.657.148-5.11 2.642a1 1 0 01-1.728 0C9.683 4.281 7.62 3.697 6.026 4.133zM12 21l-.416.91-.003-.002-.008-.004-.027-.012a15.504 15.504 0 01-.433-.214 25.638 25.638 0 01-4.762-3.187C3.773 16.297 1 12.927 1 8.538 1 5.297 2.952 2.9 5.499 2.204c2.208-.604 4.677.114 6.501 2.32 1.824-2.206 4.293-2.924 6.501-2.32C21.048 2.9 23 5.297 23 8.537c0 4.39-2.772 7.758-5.352 9.955a25.642 25.642 0 01-4.762 3.186 15.504 15.504 0 01-.432.214l-.027.012-.008.004-.003.001L12 21zm0 0l.416.91c-.264.12-.568.12-.832 0L12 21z" fill="currentColor"></path></svg>
 												<?php }else{ ?>
