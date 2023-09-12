@@ -36,7 +36,7 @@ QRcode::png($_SERVER['HTTP_REFERER'],$dataPdf['qr'], 'H', 6, 2);
 	$pdf->SetFillColor(0,0,0); $pdf->SetTextColor(255,255,255); $pdf->SetFont('InterSemibold','B',36); $pdf->Rect(36,240,205.5,99.75,'F'); $pdf->SetXY(36.75, 244); $pdf->cell(192.75, 61.5,$dataPdf['car']['price'].' $',0,1,'R',1); 
 	$pdf->SetFont('InterLightBetta','',27); $pdf->SetXY(36.75, 297); $pdf->cell(192.75, 36.75,($dataPdf['car']['price']*2.63).' ₾',0,1,'R',1);
 	$pdf->SetDrawColor(218); $pdf->Line(15.75,198,615.75,198);
-	$pdf->SetXY(262.5, 253.5); $pdf->SetFillColor(255,255,255);$pdf->SetTextColor(0,0,0);$pdf->SetFont('InterMedium','',25);$pdf->cell(210, 36.75,$dataPdf['author']['phone'],0,1,'R',1); $pdf->SetFont('InterLightBetta','',27);$pdf->SetXY(262.5, 290.25);$pdf->cell(210, 36.75,$dataPdf['author']['name'],0,1,'R',1);
+	$pdf->SetXY(262.5, 253.5); $pdf->SetFillColor(255,255,255);$pdf->SetTextColor(0,0,0);$pdf->SetFont('InterMedium','',23);$pdf->cell(210, 36.75,$dataPdf['author']['phone'],0,1,'R',1); $pdf->SetFont('InterLightBetta','',23);$pdf->SetXY(262.5, 290.25);$pdf->cell(210, 36.75,$dataPdf['author']['name'],0,1,'R',1);
 	$pdf->SetDrawColor(232); $pdf->Line(484.5,236.25,484.5, 345); $pdf->Image($dataPdf['qr'],488, 234, 114);
 	$pdf->SetXY(500, 219); $pdf->SetFontSize(15);$pdf->cell(90,20,'more detailed',0,1,"C");$pdf->SetFillColor(0,0,0);$pdf->SetTextColor(255,255,255);$pdf->SetXY(500, 348);$pdf->cell(90,20,'SCAN ME',0,1,"C",1);
 	$pdf->SetXY(0, 425); $pdf->SetFillColor(255,255,255);$pdf->SetTextColor(0,0,0);$pdf->SetFontSize(10.5);$pdf->cell(630, 11,'WWW.AUTOSPOT.GE - SELL, BUY, RENT CARS IN GEORGIA',0,1,"C",1);
@@ -47,7 +47,7 @@ endif;?>
 <html lang="<?php echo getLang(); ?>">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="description" content="<?php echo $Seo->out(["page" => "ad", "field" => "meta_desc"], $data); ?>">
 
