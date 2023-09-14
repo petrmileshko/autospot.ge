@@ -8412,6 +8412,9 @@ body {
 
 .selected-button {background-color: #C2272B;color: #ffffff;padding: 2px 10px;border-radius: 5px;}
 
+/*Added button pdf printer*/
+
+
 .d-lg-block--pdf {
 	display: flex!important;
 	 min-width: 305px;

@@ -20,8 +20,7 @@ $dataPdf =[
 		"name" => ( $data["ad"]['clients_name'] ) ? $data["ad"]['clients_name'].' '.$data["ad"]['clients_surname'] : '',
 		"phone" => ( $data["ad"]['clients_phone'] ) ? '+'.preg_replace('/ /','-',$data["ad"]['clients_phone']) : ''
 	]
-];             
-
+];
 
 if( $_POST['ID'] === $data["ad"]["ads_id"]): 
 
@@ -47,7 +46,7 @@ endif;?>
 <html lang="<?php echo getLang(); ?>">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="description" content="<?php echo $Seo->out(["page" => "ad", "field" => "meta_desc"], $data); ?>">
 
@@ -59,17 +58,19 @@ endif;?>
 
     <?php include $config["template_path"] . "/head.tpl"; ?>
   </head>
+
   <body data-prefix="<?php echo $config["urlPrefix"]; ?>" data-header-sticky="true" data-id-ad="<?php echo $data["ad"]["ads_id"]; ?>" data-id-cat="<?php echo $data["ad"]["category_board_id"]; ?>" data-template="<?php echo $config["template_folder"]; ?>" >
 	<form action="" method="post" id="pdf">
 		<input type="hidden" name="ID" value="<?=$data['ad']['ads_id']?>" >
 	</form>
     <?php include $config["template_path"] . "/header.tpl"; ?>
-
+     
     <div class="container" >
 
        <?php echo $Banners->out( ["position_name"=>"ad_view_top", "current_id_cat"=>$data["ad"]["category_board_id"], "categories"=>$getCategoryBoard] ); ?>
 
 <?php
+
 $conn = new mysqli($config["db"]["host"], $config["db"]["user"], $config["db"]["pass"], $config["db"]["database"]);
 
 $ip = $_SERVER['REMOTE_ADDR'];
@@ -93,6 +94,7 @@ if ($result_check->num_rows == 0) {
 }
 
 ?>
+
 
 <?php
 
@@ -120,6 +122,8 @@ if ($result_check->num_rows == 0) {
 }
 
 ?>
+
+
 
        <div class="mt15" ></div>
 
@@ -160,10 +164,8 @@ if ($result_check->num_rows == 0) {
              </div>
              <div class="col-lg-2 col-12 text-right" >
 
-                <div class="d-none d-lg-block d-lg-block--pdf" >
-                 <button class="print-pdf-btn" type="submit" form="pdf">
-                  pdf
-                  </button>
+						 <div class="d-none d-lg-block d-lg-block--pdf" >
+                 <button class="print-pdf-btn" type="submit" form="pdf">pdf</button>
                 <span <?php echo $Main->modalAuth( ["attr"=>'class="ad-view-title-favorite toggle-favorite-ad" data-id="'.$data["ad"]["ads_id"].'"', "class"=>"ad-view-title-favorite"] ); ?> >
 
                     <div class="ad-view-title-favorite-icon favorite-ad-icon-box" >
@@ -304,6 +306,7 @@ if ($result_check->num_rows == 0) {
                           <?php echo $Profile->cardUserAd($data); ?>
 
                      </div>
+
                    </div>
 
 
@@ -326,6 +329,7 @@ if ($result_check->num_rows == 0) {
                          <?php echo $data["properties"]; ?>
                        </div>
                      </div>
+
                    <?php } ?>
 				   
 				   

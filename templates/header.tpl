@@ -33,14 +33,14 @@
         Added attribute async (to improve page speed)
      	below
     -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
     
     <!-- Correction 4 (page speed) - <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   	removed deprecated attribute value for <script> - type="text/javascript" 
     Added attribute defer (to improve page speed)
     below
     -->
-	<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>  
+	<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" ></script>  
 	
 	<?php if($route_name != 'shop'){ ?>
 		<div class="header-wow-top" >
@@ -110,9 +110,9 @@
 					<!-- Correction 7 (validator W3) Stray end tag span (missing <span>)
                          before Code - <div class="col-2 text-right"><?php echo $ULang->t("Цены:"); ?></span>
                     -->
-					<div class="col-2 text-right"><span><?php echo $ULang->t("Цены:"); ?></span>
-						<span style="cursor: pointer;" id="btnUSD"><svg fill="#000000" width="16px" height="16px" viewBox="0 0 24 24" id="dollar-symbol" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M7,15.5A3.5,3.5,0,0,0,10.5,19h3A3.5,3.5,0,0,0,17,15.5h0A3.5,3.5,0,0,0,13.5,12h-3A3.5,3.5,0,0,1,7,8.5H7A3.5,3.5,0,0,1,10.5,5h3A3.5,3.5,0,0,1,17,8.5" style="fill: none; stroke: #008020; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><line id="primary-2" data-name="primary" x1="12" y1="21" x2="12" y2="3" style="fill: none; stroke: #008020; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line></g></svg></span>
-					  | <span style="cursor: pointer;margin-right: 5px;" id="btnLARI"><svg fill="#000000" width="16px" height="16px" viewBox="0 0 24 24" id="lari" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M4,21H20m-8.5,0a7.5,7.5,0,1,1,7.35-9" style="fill: none; stroke: #bd0000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="primary-2" data-name="primary" d="M9,12V3m4,9V3" style="fill: none; stroke: #bd0000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></g></svg> </span>
+					<div class="row" style="margin-left: 120px;">
+					<div style="cursor: pointer;" id="btnUSD" class="currency-button"><div style="padding: 2px 10px;"> <strong> $ </strong> </div></div>	
+                    <div style="cursor: pointer;" id="btnLARI" class="currency-button"><div style=" padding: 2px 10px;"> <strong> ₾ </strong> </div></div>
 					</div>
 					
 				</div>
@@ -701,7 +701,7 @@
 								
 								<?php }elseif($route_name == "ad_view"){ ?>
 								<div class="toolbar-link mr10" >
-									<button class="print-pdf-btn--mobile" type="submit" form="pdf"></button>
+								<button class="print-pdf-btn--mobile" type="submit" form="pdf"></button>
 									<span <?php echo $Main->modalAuth( ["attr"=>'class="toolbar-link-title-icon toggle-favorite-ad" data-id="'.$data["ad"]["ads_id"].'"', "class"=>"toolbar-link-title-icon"] ); ?> >
 										<div class="toolbar-link-title-icon-box favorite-ad-icon-box" >
 											<?php if( !isset($_SESSION['profile']["favorite"][$data["ad"]["ads_id"]]) ){ ?>
