@@ -5,4 +5,5 @@
 4) Подключение генерации QR кода в форму pdf
 
 [макет формы pdf](https://www.figma.com/file/wHm60lp8LaN1OhzYnKkdrG/Untitled?type=design&node-id=0%3A1&mode=dev)
+---
 [видео заказа](https://rutube.ru/video/c690d7c20020446150f5e9d28ce7ae4c/)
