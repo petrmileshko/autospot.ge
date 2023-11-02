@@ -37,12 +37,7 @@ $getShop = $Shop->getUserShop( $value["ads_id_user"] );
         </div>
         <a href="<?php echo $Ads->alias($value); ?>" ><?php echo custom_substr($value["ads_title"], 35, "..."); ?></a>
 
-        <span class="item-grid-city" >
-         <?php 
-             echo $Ads->outAdAddressArea($value);
-         ?>
-        </span>
-      
+   
      </div>
   </div>
 </div>

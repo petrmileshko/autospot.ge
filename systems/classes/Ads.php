@@ -3026,7 +3026,7 @@ function mapAdAddress($lat = 0, $lon = 0){
   }
 
   function CatalogOutAdGallery($images,$data){
-       global $config;
+       global $settings,$config;
 
        $ULang = new ULang();
 
@@ -3034,18 +3034,20 @@ function mapAdAddress($lat = 0, $lon = 0){
 
        if(count($images)){
            //18-08-2023 Correction 45  added attributes to <img> tags see at log of git https://github.com/petrmileshko/autospot.ge/commits/main 
-           foreach ( array_slice($images, 0, 4) as $key_image => $name ) {
+           foreach ( array_slice($images, 0, $result = ($settings["img_slider"] == 0) ? 1 : (($settings["img_slider"] == 1) ? 4 : null)) as $key_image => $name ) {
                if(file_exists($config['basePath'].'/'.$config["media"]["small_image_ads"].'/'.$name)){
-                    $results .= '<img class="image-autofocus ad-gallery-hover-slider-image lazyload" data-src="'.Exists($config["media"]["small_image_ads"],$name,$config["media"]["no_image"]).'" data-key="'.$key_image.'" alt="'.$data["ads_title"].'" src="'.Exists($config["media"]["small_image_ads"],$name,$config["media"]["no_image"]).'" loading="lazy" decoding="async">';
+                    $results .= '<!--18-08-2023 Correction 45-2 --><img class="image-autofocus ad-gallery-hover-slider-image lazyload" data-src="'.Exists($config["media"]["small_image_ads"],$name,$config["media"]["no_image"]).'" data-key="'.$key_image.'" alt="'.$data["ads_title"].'" src="'.Exists($config["media"]["small_image_ads"],$name,$config["media"]["no_image"]).'" loading="lazy" decoding="async">';
                }elseif(file_exists($config['basePath'].'/'.$config["media"]["big_image_ads"].'/'.$name)){
-                    $results .= '<img class="image-autofocus ad-gallery-hover-slider-image lazyload" data-src="'.Exists($config["media"]["big_image_ads"],$name,$config["media"]["no_image"]).'" data-key="'.$key_image.'" alt="'.$data["ads_title"].'" src="'.Exists($config["media"]["big_image_ads"],$name,$config["media"]["no_image"]).'" loading="lazy" decoding="async">';
+                    $results .= '<!--18-08-2023 Correction 45 --><img class="image-autofocus ad-gallery-hover-slider-image lazyload" data-src="'.Exists($config["media"]["big_image_ads"],$name,$config["media"]["no_image"]).'" data-key="'.$key_image.'" alt="'.$data["ads_title"].'" src="'.Exists($config["media"]["big_image_ads"],$name,$config["media"]["no_image"]).'" loading="lazy" decoding="async">';
                }
            }
 
            if(!$results){
                 return '<div class="item-img-no-photo" >'.$ULang->t('Фото').'<br>'.$ULang->t('нет').'</div>';
            }
-
+		   
+          
+	    if ($settings["img_slider"] == 1) {
            if(count($images)>1){
               
               $results .= '<div class="ad-gallery-hover-slider" >'; 
@@ -3056,9 +3058,11 @@ function mapAdAddress($lat = 0, $lon = 0){
 
               $results .= '</div>';
 
-           }
+		  }
+		  
+		  }
 
-           $results .= '<div class="item-grid-count-photo" ><i class="las la-camera"></i> '.count($images).'</div>';
+           $results .= '<div class="item-grid-count-photo" >'.$ULang->t( $data["city_name"], [ "table" => "geo", "field" => "geo_name" ] ).'</div>';
 
            return $results;
 
@@ -3077,12 +3081,46 @@ function mapAdAddress($lat = 0, $lon = 0){
   function userCountAvailablePaidAddCategory($id_cat, $id_user){
       return (int)getOne("select count(*) as total from uni_ads where ads_id_cat=? and ads_id_user=? and ads_status IN(0,1,2,7)", [$id_cat, $id_user])["total"];
   }
+  
 
 
-      
+
+function generateAdsFilterItems($data) {
+    global $settings, $config;
+    $ULang = new ULang();
+    $query = getAll("SELECT * FROM uni_ads_filters_items WHERE ads_filters_items_id_filter=90 ");
+    $querys = getAll("SELECT * FROM uni_ads_filters_items WHERE ads_filters_items_position = 1 and ads_filters_items_id_filter=90");
+    $output = "<div class='row' style=''>";
+    if (count($querys)) {
+        foreach ($querys as $key => $value) {
+            $output .= "
+			<div class='col-lg-1 col-md-2 col-sm-2 col-3' style='text-align: center;'><a style='color: #283544; font-weight: 500;' href='" . _link($settings["country_default"]) . "/avtomobili?filter%5B90%5D%5B0%5D=" . $value["ads_filters_items_id"] . "'>
+			<img src='/media/car_logo/" . $value["ads_filters_items_logo"] . "' class='mb20' style='width: 45px;'></a></div>";
+        }
+    }
+    $output .= "</div><div class='mb10'></div><div class='row'  style='padding: 12px;'>";
+    if (count($query)) {
+        foreach ($query as $key => $value) {
+            $output .= "<div class='col-lg-2 col-md-3 col-sm-3 col-6 mb20'><a style='color: #283544; font-weight: 500;' href='" . _link($settings["country_default"]) . "/avtomobili?filter%5B90%5D%5B0%5D=" . $value["ads_filters_items_id"] . "'>".$ULang->t( $value["ads_filters_items_value"] , [ "table" => "uni_ads_filters", "field" => "ads_filters_items_value" ] )."</a></div>";
+        }
+    }
+    $output .= "</div>";
+    $output .= "<script>
+        $(document).ready(function(){
+            $('.content_toggle').click(function(){
+                $('.content_block').toggleClass('hide');    
+                if ($('.content_block').hasClass('hide')) {
+                    $('.content_toggle').html('&nbsp; &nbsp;" . $ULang->t("Все марки") . " <i class=\"la la-angle-down\"></i>');
+                } else {
+                    $('.content_toggle').html('&nbsp; &nbsp;" . $ULang->t("Свернуть") . " <i class=\"la la-angle-up\"></i>');
+                }  
+                return false;
+            });    
+        });
+    </script>";
+    return $output;
 }
 
-
-
+}
 
 ?>

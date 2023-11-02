@@ -324,6 +324,15 @@ $(document).on('click','.price-currency i', function (e) {
 
 });
 
+$(document).on('mouseenter', '.price-currencys', function () {
+    $('.board-view-prices').show();
+});
+
+$(document).on('mouseleave', '.price-currencys', function () {
+    $('.board-view-prices').hide();
+});
+
+
 $(document).on('click','.toggle-favorite-ad', function () {    
   var _this = $(this); 
   $.ajax({type: "POST",url: url_path + "systems/ajax/profile.php",data: "id_ad=" + _this.data("id") + "&action=favorite",dataType: "json",cache: false,success: function (data) { 

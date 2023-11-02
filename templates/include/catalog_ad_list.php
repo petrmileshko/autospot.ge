@@ -35,11 +35,7 @@ if($value["ads_auction"]){
                <div class="col-lg-8 col-8" >
                   <a  class="item-list-title word-break" href="<?php echo $Ads->alias($value); ?>" target="_blank" ><?php echo $value["ads_title"]; ?></a>
                   <?php if($settings["main_type_products"] == 'physical'){ ?>
-                  <span class="item-list-city-name" ><i class="las la-map-marker"></i>
-                     <?php 
-                         echo $Ads->outAdAddressArea($value);
-                     ?>
-                  </span>
+                
                   <?php } ?>                 
                   <span class="item-list-date" ><i class="las la-clock"></i> <?php echo datetime_format($value["ads_datetime_add"],false); ?></span>  
                   <?php if($value["ads_auction"]){ ?>               

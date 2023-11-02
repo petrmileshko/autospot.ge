@@ -57,7 +57,7 @@
 					<a href="<?php echo $ads_url; ?>" title="<?php echo $ads_title; ?>">
 						<div class='item-grid' title="<?php echo $ads_title; ?>">
 							<div class="item-grid-img">
-								
+								 <!--  users_ad_grid_views.php row 60 -->  
 								<div class="item-labels"></div>
 							<!-- 18-08-2023 Correction 44 see at log of git https://github.com/petrmileshko/autospot.ge/commits/main 
 								Postpone loading images

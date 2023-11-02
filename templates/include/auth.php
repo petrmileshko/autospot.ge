@@ -4,6 +4,7 @@
    <span data-tab="2" ><?php echo $ULang->t("Регистрация"); ?></span>
 </div>
 
+
 <div class="auth-block-tab auth-block-tab-auth auth-block-tab-1" >
 
     <?php if($settings["authorization_method"] == 1){ ?>
@@ -133,10 +134,8 @@
 
 	  <div class="input-phone-format" >
 
-      <input type="text"  class="form-control input-style2-custom phone-mask" data-format="<?php echo getFormatPhone(); ?>" placeholder="<?php echo $ULang->t("Номер телефона"); ?>" name="user_phone">
-      <div class="msg-error mb10" data-name="user_phone" ></div>
-      <?php echo outBoxChangeFormatPhone(); ?>
-
+      <input type="text"  class="form-control input-style2-custom" placeholder="<?php echo $ULang->t("Укажите свой e-mail адрес"); ?>" name="user_email">
+      <div class="msg-error mb10" data-name="user_email" ></div>
     </div>
 
       <input type="password"  class="form-control input-style2-custom" placeholder="<?php echo $ULang->t("Пароль"); ?>" maxlength="25" name="user_pass">

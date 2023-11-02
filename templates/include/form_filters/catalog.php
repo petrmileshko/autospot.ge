@@ -102,10 +102,7 @@
 </div>
 
 
-<div class="f w">
-<span style="cursor: pointer; margin-left: -5px; height: 34px;" id="btnUSD_l" class="currency-button action-clear-filter"><div style="margin-top: -10px;padding: 2px 10px;">$</div></span>
-<span style="cursor: pointer; margin-right: -5px; height: 34px;" id="btnLARI_l" class="currency-button action-clear-filter"><div style="margin-top: -10px; padding: 2px 10px;">₾</div></span>
-</div>
+
 			<?php 
 			} 
 			}else{
@@ -139,11 +136,7 @@
 </div>
 
 
-<div class="f w">
- <span style="cursor: pointer; margin-left: -5px; height: 34px;" id="btnUSD_m" class="currency-button action-clear-filter"><div style="margin-top: -10px;padding: 2px 10px;">$</div></span>
-		
-		 <span style="cursor: pointer; margin-right: -5px; height: 34px;" id="btnLARI_m" class="currency-button action-clear-filter"><div style="margin-top: -10px; padding: 2px 10px;">₾</div></span>
-</div>  
+
 		<?php
 		}
 		
@@ -281,10 +274,7 @@
 </div>
 
 
-<div class="f w">
-<span style="cursor: pointer; margin-left: -5px; height: 34px;" id="btnUSD_f" class="currency-button action-clear-filter"><div style="margin-top: -10px;padding: 2px 10px;">$</div></span>	
-<span style="cursor: pointer; margin-right: -5px; height: 34px;" id="btnLARI_f" class="currency-button action-clear-filter"><div style="margin-top: -10px; padding: 2px 10px;">₾</div></span>
-</div>
+
 			
 			<?php 
 			} 
@@ -319,10 +309,7 @@
 </div>
 
 
-<div class="f w">
- <span style="cursor: pointer; margin-left: -5px; height: 34px;" id="btnUSD_y" class="currency-button action-clear-filter"><div style="margin-top: -10px;padding: 2px 10px;">$</div></span>
-<span style="cursor: pointer; margin-right: -5px; height: 34px;" id="btnLARI_y" class="currency-button action-clear-filter"><div style="margin-top: -10px; padding: 2px 10px;">₾</div></span>
-</div>
+
 		<?php
 		}
 		

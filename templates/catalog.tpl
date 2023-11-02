@@ -49,13 +49,13 @@
 							</div>
 							
 						</div>
-					<?php } ?>
+					       <?php } ?>
 					
 					<?php if($data["seo_alias_category"]){ ?>
-						<div class="slider-list-seo-filters list-seo-filters" >
-							<?php echo $data["seo_alias_category"]; ?>
+					<div class="slider-list-seo-filters list-seo-filters" >
+						<?php echo $data["seo_alias_category"]; ?>
 						</div> 
-					<?php } ?>               
+					<?php } ?>        
 
 					<div class="row" >
 
@@ -63,7 +63,17 @@
 							
 							<?php if( $data["vip"]["count"] && !$data["param_filter"]["filter"]["vip"] ){ ?>
 								<div class="mb20" >
-									<div class="mb25 title-and-link h4 mt50" > <strong><?php echo $ULang->t( "VIP объявления" ); ?></strong> <a href="<?php echo $data["vip_link"]; ?>" ><?php echo $ULang->t( "Больше объявлений" ); ?> <i class="las la-arrow-right"></i></a> </div>
+									<div class="mb25 title-and-link h4 mt50" > <strong><?php echo $ULang->t( "VIP объявления" ); ?></strong> <a href="<?php echo $data["vip_link"]; ?>" ><?php echo $ULang->t( "Больше объявлений" ); ?> <i class="las la-arrow-right"></i></a> 
+										    <span class="d-none d-md-block"  style="float: right;font-size:16px; margin-top: 5px;">
+						                         <img src="/media/others/hot.svg" style="width:22px;margin-top: -5px;">
+						                      <a style="color:#000; font-size:15px;" href="/promo/hot-<?php $lang = getLang(); if ($lang != "geo" && $lang != "rus") { $lang = "geo";} echo $lang; ?>" ><?php echo $ULang->t( "Разместить сюда" ); ?></a>
+						                    </span>
+										</div>
+										<div class="d-block d-lg-none mb20">
+						        <img src="/media/others/hot.svg" style="width:22px;margin-top: -5px;">
+						        <a style="color:#000; font-size:15px;" href="/promo/hot-<?php $lang = getLang(); if ($lang != "geo" && $lang != "rus") { $lang = "geo";} echo $lang; ?>" ><?php echo $ULang->t( "Разместить сюда" ); ?></a>
+						</div>
+						
 									<div class="slider-item-grid">
 										<div class="owl-carousel init-slider-grid gutters10" style="padding: 10px;" data-slick='{"infinite": true}'>
 											<?php
@@ -142,9 +152,7 @@
 								
 								<div class="preload" >
 									
-									<div class="spinner-grow mt80 preload-spinner" role="status">
-										<span class="sr-only"></span>
-									</div>
+									<img src="/media/others/animation_lnj7ji3l_small.gif"/>
 									
 								</div>
 								
@@ -255,4 +263,4 @@
 .cat-bg {border: 4px solid #fff;height: 119px;border-radius: 0px;display: block;border: 1px solid #f5f5f5; margin: 0px;}
 .slick-track {margin-left: 0px;}.item-grids{margin-left: 0px;}
 div a{color: #8d8176; text-decoration: none !important; border: none !important;}.m-index-category:hover{background:#f7f8fa;}}
-</style>	
+</style>

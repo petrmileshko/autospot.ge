@@ -176,7 +176,7 @@ $(document).ready(function () {
 
    });
 
-   $(document).on('click','.action-reg-finish', function (e) {  
+/*  $(document).on('click','.action-reg-finish', function (e) {  
       
       $(".msg-error").hide();
       var this_ = $(this);
@@ -210,6 +210,51 @@ $(document).ready(function () {
       e.preventDefault();
 
    });
+   
+*/
+	
+	
+	$(document).on('click', '.action-reg-finish', function (e) {
+		
+    $(".msg-error").hide();
+    var this_ = $(this);
+
+    showLoadProcess(this_);
+
+    $.ajax({
+        type: "POST",
+        url: url_path + "systems/ajax/profile.php",
+        data: "user_login=" + $(".auth-block-tab-reg input[name=user_login]").val() + "&user_code_login=" + $(".auth-block-tab-reg input[name=user_code_login]").val() + "&user_pass=" + $(".auth-block-tab-reg input[name=user_pass]").val() + "&user_name=" + $(".auth-block-tab-reg input[name=user_name]").val() + "&user_email=" + $(".auth-block-tab-reg input[name=user_email]").val() + "&action=reg_finish",
+        dataType: "json",
+        cache: false,
+        success: function (data) {
+
+            if (data["status"] == true) {
+                
+                window.location.href = "/ad/create";
+            } else {
+
+                if (data["answer"]) {
+                    $.each(data["answer"], function (index, value) {
+
+                        $(".auth-block-tab-reg .msg-error[data-name=" + index + "]").html(value).show();
+
+                    });
+
+                    hideLoadProcess(this_);
+                } else {
+                    location.reload();
+                }
+
+            }
+
+        }
+    });
+
+    e.preventDefault();
+
+});
+	
 
    $(document).on('click','.auth-block-right-box-tab-1-2-back > span', function (e) {  
 

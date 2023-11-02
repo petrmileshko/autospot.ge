@@ -1,6 +1,16 @@
 <!-- Updated head.tpl - Correction of meta tags - dev Petr Mileshko -->
 <meta name="csrf-token" content="<?php echo csrf_token(); ?>">
 
+ 
+ 
+ <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5498GRN3');</script>
+<!-- End Google Tag Manager -->
+ 
 <?php
 // Correction by Petr Mileshko
 // old code - echo $settings["header_meta"]; - This Code rendering meta tags with closing slash at the end ("/>") as it no more in use in HTML5 specification
@@ -10,8 +20,8 @@ echo preg_replace("/\/>/",">",$settings["header_meta"]);
 ?>
 
 <!-- 18-08-2023 Correction 42 Fonts transfered on server
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+//<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+//<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
 -->
 
 <link rel="icon" href="https://autospot.ge/favicon.ico" type="image/x-icon">

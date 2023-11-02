@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="<?php echo getLang(); ?>">
    <head>
-      
+  <meta name="viewport" content="width=device-width, initial-scale=1">    
       <title><?php echo $ULang->t("Публикация объявления"); ?></title>
       
       <?php include $config["template_path"] . "/head.tpl"; ?>
 
    </head>
    <body data-prefix="<?php echo $config["urlPrefix"]; ?>"  data-template="<?php echo $config["template_folder"]; ?>" >
-
+     <?php include $config["template_path"] . "/header-new.tpl"; ?>
       <div class="mt40" ></div>
 
       <div class="container mb100" >
@@ -31,14 +31,11 @@
                                   foreach ($getCategoryBoard["category_board_id_parent"][0] as $key => $value) {
                                     ?>
                                       <div class="col-lg-3 col-6" >
-                                        <div class="ads-create-main-category-list-item" data-id="<?php echo $value["category_board_id"]; ?>" >
-
-                                          
-
-                                            <span class="ads-create-main-category-icon" >
-                                            <img alt="<?php echo $ULang->t( $value["category_board_name"], [ "table" => "uni_category_board", "field" => "category_board_name" ] ); ?>" src="<?php echo Exists($config["media"]["other"],$value["category_board_image"],$config["media"]["no_image"]); ?>">
+                                        <div style="background-color: #fff; -webkit-box-shadow: 0 2px 4px 0 #ffffff;padding: 0px;" class="ads-create-main-category-list-item ads-create-main-data-price-variant" data-var="fix" data-id="<?php echo $value["category_board_id"]; ?>" >
+                                            <span class="ads-create-main-category-icon ads-create-main-data-price-variant" style="background-color: #fff; -webkit-box-shadow: 0 2px 4px 0 #ffffff;" data-var="fix">
+                                            <img alt="<?php echo $ULang->t( $value["category_board_name"], [ "table" => "uni_category_board", "field" => "category_board_name" ] ); ?>" src="<?php echo Exists($config["media"]["other"],$value["category_board_image"],$config["media"]["no_image"]); ?>" class="ads-create-main-data-price-variant" style="padding: 0px;background-color: #fff; -webkit-box-shadow: 0 2px 4px 0 #ffffff;" data-var="fix">
                                             </span>
-                                            <span class="ads-create-main-category-name" ><?php echo $ULang->t( $value["category_board_name"], [ "table" => "uni_category_board", "field" => "category_board_name" ] ); ?></span>
+                                            <span style="background-color: #fff; -webkit-box-shadow: 0 2px 4px 0 #ffffff; padding: 0px;" class="ads-create-main-category-name ads-create-main-data-price-variant"  data-var="fix"><?php echo $ULang->t( $value["category_board_name"], [ "table" => "uni_category_board", "field" => "category_board_name" ] ); ?></span>
 
                                         </div>
                                       </div>

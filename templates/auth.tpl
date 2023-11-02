@@ -2,7 +2,7 @@
 <html lang="<?php echo getLang(); ?>">
   <head>
     <meta charset="utf-8">
-    
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $ULang->t("Вход в личный кабинет"); ?></title>
     
     <?php include $config["template_path"] . "/head.tpl"; ?>
@@ -10,17 +10,15 @@
   </head>
 
   <body  data-prefix="<?php echo $config["urlPrefix"]; ?>" data-template="<?php echo $config["template_folder"]; ?>" >
-
+     <?php include $config["template_path"] . "/header-new.tpl"; ?>
    <div class="container" >
 
    <div class="auth-logo" >
-        <a class="h-logo" href="<?php echo _link(); ?>" title="<?php echo $ULang->t($settings["title"]); ?>" >
-            <img src="<?php echo $settings["logotip"]; ?>" alt="<?php echo $ULang->t($settings["title"]); ?>">
-        </a>       
+              
    </div>
 
    <div class="auth-block" >
-
+ 
      <div class="row no-gutters" >
         <div class="col-lg-5 d-none d-lg-block" >
 
@@ -69,7 +67,8 @@
           
            <div class="auth-block-right" >
                
-              <?php include $config["template_path"] . "/include/auth.php"; ?>
+			   
+              <?php include $config["template_path"] . "/include/reg.php"; ?>
 
            </div>
 

@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="<?php echo getLang(); ?>" style="min-height: 100%;" >
+<html lang="<?php echo getLang(); ?>">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="description" content="<?php echo $data["page"]["promo_pages_desc"]; ?>">
 

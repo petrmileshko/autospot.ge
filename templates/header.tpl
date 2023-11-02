@@ -47,43 +47,7 @@
 			<div class="container" >
 				<div class="row" >
 					<div class="col-lg-2 col-2" >
-						
-						<?php if($settings["visible_lang_site"]){ ?>
-							<div class="header-wow-top-lang"   translate="no" >
-                             
-                             <!-- Correction 5 (validator W3) <img> element must have an alt attribute -->
-								<img style="width: 20px;border-radius: 50px; margin-left: 6px;"src="/media/others/<?php echo getLang(); ?>.png" alt="<?php echo $_SESSION['langSite']['name']; ?>">  
-                                 
-                                 <div class="toolbar-dropdown dropdown-click">
-									<span class="header-wow-top-lang-name" ><?php echo $_SESSION["langSite"]["name"]; ?></span>
-									
-									<div class="toolbar-dropdown-box width-180 left-0 no-padding toolbar-dropdown-js">
-										
-										<div class="dropdown-box-list-link dropdown-lang-list">
-											
-											<?php
-												$getLang = getAll("SELECT * FROM uni_languages WHERE status = ? ORDER BY id_position", [1]);
-												
-												if(count($getLang)){
-													foreach ($getLang as $key => $value) {
-													?>
-													<a href="<?php echo trim($config["urlPath"] . "/" . $value["iso"] . "/" . REQUEST_URI, "/"); ?>">
-                                                     <!-- Correction 6 (validator W3) <img> element must have an alt attribute -->
-                                                     <img  data-google-lang=""  src="<?php echo Exists( $config["media"]["other"],$value["image"],$config["media"]["no_image"] ); ?>" alt="<?php echo $value['name']; ?>">
-                                                     <span><?php echo $value["name"]; ?></span>
-                                                    </a>
-													<?php
-													}
-												}
-											?>
-											
-										</div>
-										
-									</div>
-								</div>
-							</div>
-						<?php } ?>
-						
+
 					</div>
 					
 					<div class="col-lg-8 col-8 text-right" >
@@ -139,15 +103,7 @@
 						
 						<div class="header-flex-box" >
 							
-							<div class="header-flex-box-1" >
-								
-								<div class="header-button-menu-catalog btn-color-blue" >
-									<span class="header-button-menu-catalog-icon-1" ><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ui-e2"><path d="M5 6a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm4-1a1 1 0 000 2h12a1 1 0 100-2H9zm0 6a1 1 0 100 2h12a1 1 0 100-2H9zm-1 7a1 1 0 011-1h6a1 1 0 110 2H9a1 1 0 01-1-1zm-4.5-4.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM5 18a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>
-									<span class="header-button-menu-catalog-icon-2" ><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ui-e2"><path d="M12 10.587l6.293-6.294a1 1 0 111.414 1.414l-6.293 6.295 6.293 6.294a1 1 0 11-1.414 1.414L12 13.416 5.707 19.71a1 1 0 01-1.414-1.414l6.293-6.294-6.293-6.295a1 1 0 111.414-1.414L12 10.587z" fill="currentColor"></path></svg></span>
-									<span><?php echo $ULang->t('Каталог магазина'); ?></span>
-								</div>                    
-								
-							</div>
+
 							
 							<div class="header-flex-box-2 parents-ajax-live-search" >
 								
@@ -315,8 +271,47 @@
 						</div>
 						
 						<div class="header-flex-box" >
+						
+						<div class="header-flex-box-1" >
+						<?php if($settings["visible_lang_site"]){ ?>
+							<div class="header-wow-top-lang"   translate="no" >
+                             
+                             <!-- Correction 5 (validator W3) <img> element must have an alt attribute -->
+								<img style="width: 20px;border-radius: 50px; margin-left: 6px;"src="/media/others/<?php echo getLang(); ?>.png" alt="<?php echo $_SESSION['langSite']['name']; ?>">  
+                                 
+                                 <div class="toolbar-dropdown dropdown-click">
+									<span class="header-wow-top-lang-name" ><?php echo $_SESSION["langSite"]["name"]; ?></span>
+									
+									<div class="toolbar-dropdown-box width-180 left-0 no-padding toolbar-dropdown-js">
+										
+										<div class="dropdown-box-list-link dropdown-lang-list">
+											
+											<?php
+												$getLang = getAll("SELECT * FROM uni_languages WHERE status = ? ORDER BY id_position", [1]);
+												
+												if(count($getLang)){
+													foreach ($getLang as $key => $value) {
+													?>
+													<a href="<?php echo trim($config["urlPath"] . "/" . $value["iso"] . "/" . REQUEST_URI, "/"); ?>">
+                                                     <!-- Correction 6 (validator W3) <img> element must have an alt attribute -->
+                                                     <img  data-google-lang=""  src="<?php echo Exists( $config["media"]["other"],$value["image"],$config["media"]["no_image"] ); ?>" alt="<?php echo $value['name']; ?>">
+                                                     <span><?php echo $value["name"]; ?></span>
+                                                    </a>
+													<?php
+													}
+												}
+											?>
+											
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						<?php } ?>
+						
+					</div>
 							
-							<div class="header-flex-box-1" >
+							<!--<div class="header-flex-box-1" >
 								
 								<div class="header-button-menu-catalog btn-color-blue" >
 									<span class="header-button-menu-catalog-icon-1" ><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ui-e2"><path d="M5 6a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm4-1a1 1 0 000 2h12a1 1 0 100-2H9zm0 6a1 1 0 100 2h12a1 1 0 100-2H9zm-1 7a1 1 0 011-1h6a1 1 0 110 2H9a1 1 0 01-1-1zm-4.5-4.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM5 18a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>
@@ -324,7 +319,7 @@
 									<span><?php echo $ULang->t('Каталог'); ?></span>
 								</div>                    
 								
-							</div>
+							</div>-->
 							
 							<div class="header-flex-box-2" >
 								

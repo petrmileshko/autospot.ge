@@ -1,6 +1,7 @@
 
 <div class="mb25 h3" > <strong><?php echo $ULang->t( "Сейчас смотрят" ); ?></strong></div>
 <div id="slider" class="slick-slider row no-gutters gutters10" >
+	 <!--  users_ad_grid_views_phone.php row 4 -->  
 	<?php
 		$conn = new mysqli($config["db"]["host"], $config["db"]["user"], $config["db"]["pass"], $config["db"]["database"]);
 		$conn->query("SET NAMES 'utf8mb4'");
@@ -53,7 +54,7 @@
 			<div class='item-grid item-grids' title="<?php echo $ads_title; ?>">
 				<a href="<?php echo $ads_url; ?>" title="<?php echo $ads_title; ?>">	
 					<div class="item-grid-img">
-						
+							 <!--  users_ad_grid_views_phone.php row 57 -->  
 						<div class="item-labels"></div>
 						<!-- 18-08-2023 Correction 43 see at log of git https://github.com/petrmileshko/autospot.ge/commits/main 
 								Postpone loading images

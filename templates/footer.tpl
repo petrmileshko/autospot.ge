@@ -735,7 +735,7 @@ if($route_name == "catalog" || $route_name ==  "index" || $route_name ==  "ad_vi
     </div>
    </a>
 
-   <a <?php echo $Main->modalAuth(["attr"=>'class="floating-menu-ad-create" href="'._link( "ad/create" ).'"', "class"=>"floating-menu-ad-create"]); ?> >
+   <a href="<?php echo _link("ad/create"); ?>">
     <div>
       <div class="floating-menu-icon" >
           <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -1192,6 +1192,7 @@ if($route_name == "catalog" || $route_name ==  "index" || $route_name ==  "ad_vi
           <a href="<?php echo _link("rules"); ?>"><?php echo $ULang->t("Правила сервиса"); ?></a>
           <a href="<?php echo _link("polzovatelskoe-soglashenie"); ?>"><?php echo $ULang->t("Пользовательское соглашение"); ?></a>
           <a href="<?php echo _link("feedback"); ?>"><?php echo $ULang->t("Служба поддержки"); ?></a>
+          <a href=sitemap-rus.html><?php echo $ULang->t("Карта сайта"); ?></a> 
         </div>
 
      </div>
